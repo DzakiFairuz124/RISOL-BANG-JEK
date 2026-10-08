@@ -67,13 +67,14 @@
   <section id="faq">
     <h2>Pertanyaan yang sering muncul</h2>
     <details><summary>Pesan hari ini, kapan siap?</summary><p>Pesanan digoreng setelah kamu kirim. Biasanya siap dalam 15 sampai 20 menit.</p></details>
+    <details><summary>Ongkirnya berapa?</summary><p>Ongkir dihitung per kilometer dari warung. Jaraknya diisi di langkah pembayaran, dan totalnya langsung terlihat sebelum kamu kirim pesanan.</p></details>
     <details><summary>Bayarnya bagaimana?</summary><p>Tunai saat ambil atau antar, atau scan QRIS. Website ini hanya mengirim daftar pesanan ke WhatsApp.</p></details>
     <details><summary>Bisa pesan banyak untuk acara?</summary><p>Bisa. Chat lewat WhatsApp minimal sehari sebelumnya.</p></details>
   </section>
 
   <section id="kontak">
     <h2>Ada pertanyaan?</h2>
-    <p class="info"><b>Alamat:</b> Jl. Cibogo Atas, Gg. Siti Murgi, No. 111, Kota Bandung<br><b>Terima pesanan:</b> setiap hari, 08.00 sampai 20.00</p>
+    <p class="info"><b>Alamat:</b> Jl. Contoh No. 12, Kota Anda<br><b>Terima pesanan:</b> setiap hari, 08.00 sampai 20.00</p>
     <a class="btn" id="waLangsung" href="#" target="_blank" rel="noopener">Tanya lewat WhatsApp</a>
   </section>
 </main>
@@ -106,7 +107,7 @@
   <div class="nota-isi" id="vBayar" hidden>
     <p class="nota-tgl">Langkah 2 dari 2</p>
     <h2>Data pesanan</h2>
-    <div class="nota-total"><span>Total bayar</span><b id="bayarTotal">Rp0</b></div>
+    <div class="rincian" id="rincian"></div>
     <label for="pNama">Atas nama</label>
     <input type="text" id="pNama" maxlength="40" placeholder="Nama kamu" required>
     <div id="tipe" role="group" aria-label="Cara terima">
@@ -115,6 +116,12 @@
     </div>
     <label for="pAlamat" id="lAlamat" hidden>Alamat antar</label>
     <input type="text" id="pAlamat" maxlength="120" placeholder="Jalan, nomor, patokan" hidden>
+    <div id="blokJarak" hidden>
+      <label for="pJarak">Jarak dari warung (km)</label>
+      <input type="number" id="pJarak" min="0.1" max="50" step="0.1" inputmode="decimal" placeholder="Misal: 3.5">
+      <button type="button" class="tab" id="hitungJarak">Hitung dari lokasi saya</button>
+      <p class="catatan kiri" id="infoJarak"></p>
+    </div>
     <label for="pCatatan">Catatan (boleh kosong)</label>
     <input type="text" id="pCatatan" maxlength="100" placeholder="Misal: sambal dipisah">
     <p class="jdl">Bayar dengan</p>
