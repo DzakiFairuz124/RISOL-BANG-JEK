@@ -1,6 +1,6 @@
 (function () {
   // ===== Pengaturan (ubah di sini) =====
-  var NOMOR_WA = "6281234567890"; // awali 62, tanpa + atau 0 di depan
+  var NOMOR_WA = "62895343626600"; // awali 62, tanpa + atau 0 di depan
   var NAMA_USAHA = "Risol Bang Jek";
   var JAM_BUKA = 8, JAM_TUTUP = 20;
   var KODE_PROMO = "RISOL10"; // diskon 10%
