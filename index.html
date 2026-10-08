@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risol Bang Jek - Panas, Garing, Isi Penuh</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A5%9F%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Risol digoreng saat dipesan. Pilih menu, hitung total, pesan lewat WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="logo" href="#atas">Risol Bang Jek</a>
+  <div class="nav-kanan"><a class="btn kecil" href="#menu">Pesan</a><button class="malam" id="malam" type="button" aria-pressed="false">Mode malam</button></div>
+</nav>
+
+<header class="hero" id="atas">
+  <div class="hero-teks">
+    <h1>Risol panas, kulit garing, isi penuh.</h1>
+    <p>Digoreng saat kamu pesan. Pilih, kirim ke WhatsApp, tinggal tunggu.</p>
+    <a class="btn besar" href="#menu">Pesan sekarang</a>
+    <div class="papan" id="papan" data-buka="true" aria-live="polite"><b id="papanTeks">BUKA</b><small id="papanJam"></small></div>
+  </div>
+  <img class="hero-art" src="img/hero.jpg" alt="Risol mayo goreng keemasan dengan isi smoked beef, telur, dan mayo" width="800" height="600" onerror="this.remove()">
+</header>
+
+<main>
+  <section id="alasan">
+    <h2>Kenapa bikin ketagihan</h2>
+    <ul class="alasan">
+      <li><b>Digoreng saat dipesan</b>Selalu panas dan garing, bukan sisa etalase.</li>
+      <li><b>Isi penuh</b>Setiap gigitan langsung ketemu isinya.</li>
+      <li><b>Pesan 1 menit</b>Pilih menu, kirim ke WhatsApp, selesai.</li>
+    </ul>
+  </section>
+
+  <section id="menu">
+    <h2>Pilih risolmu</h2>
+    <div class="tabs" role="group" aria-label="Pilih kategori menu">
+      <button class="tab" data-kat="Semua" aria-pressed="true">Semua</button>
+      <button class="tab" data-kat="Gurih" aria-pressed="false">Gurih</button>
+      <button class="tab" data-kat="Manis" aria-pressed="false">Manis</button>
+    </div>
+    <div class="daftar" id="daftar"></div>
+  </section>
+
+  <section id="cara">
+    <h2>Cara pesan</h2>
+    <ol class="langkah">
+      <li><b>Pilih menu</b>Tekan tanda + pada risol yang kamu mau.</li>
+      <li><b>Cek nota</b>Ubah jumlah dan pakai kode promo kalau ada.</li>
+      <li><b>Kirim lewat WhatsApp</b>Pesananmu tertulis rapi di chat kami.</li>
+    </ol>
+  </section>
+
+  <section id="ulasan">
+    <h2>Kata mereka yang sudah coba</h2>
+    <figure class="ulasan" aria-live="polite"><blockquote id="uTeks"></blockquote><figcaption id="uNama"></figcaption></figure>
+    <div class="titik" id="titik" role="group" aria-label="Pilih ulasan"></div>
+    <p class="catatan">Ulasan di atas hanya contoh. Ganti dengan ulasan pelangganmu.</p>
+  </section>
+
+  <section id="faq">
+    <h2>Pertanyaan yang sering muncul</h2>
+    <details><summary>Pesan hari ini, kapan siap?</summary><p>Pesanan digoreng setelah kamu kirim. Biasanya siap dalam 15 sampai 20 menit.</p></details>
+    <details><summary>Bayarnya bagaimana?</summary><p>Tunai saat ambil atau antar, atau scan QRIS. Website ini hanya mengirim daftar pesanan ke WhatsApp.</p></details>
+    <details><summary>Bisa pesan banyak untuk acara?</summary><p>Bisa. Chat lewat WhatsApp minimal sehari sebelumnya.</p></details>
+  </section>
+
+  <section id="kontak">
+    <h2>Ada pertanyaan?</h2>
+    <p class="info"><b>Alamat:</b> Jl. Cibogo Atas, Gg. Siti Murgi, No. 111, Kota Bandung<br><b>Terima pesanan:</b> setiap hari, 08.00 sampai 20.00</p>
+    <a class="btn" id="waLangsung" href="#" target="_blank" rel="noopener">Tanya lewat WhatsApp</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Risol Bang Jek</strong></p>
+  <p>&copy; <span id="tahun">2026</span> Risol Bang Jek. Sekali gigit, minta lagi.</p>
+</footer>
+
+<div class="keranjang" id="keranjang" hidden>
+  <div class="k-info"><b id="kJumlah">0 item</b><span id="kTotal">Rp0</span></div>
+  <button class="btn" id="kBuka" type="button">Lihat keranjang</button>
+</div>
+
+<dialog class="nota" id="nota" aria-labelledby="notaJudul">
+  <div class="nota-isi" id="vKeranjang">
+    <p class="nota-tgl">Langkah 1 dari 2</p>
+    <h2 id="notaJudul">Keranjang kamu</h2>
+    <div id="notaBaris"></div>
+    <div class="promo"><input type="text" id="kode" placeholder="Kode promo (coba RISOL10)" aria-label="Kode promo"><button class="tab" id="kodePakai" type="button" aria-pressed="false">Pakai</button></div>
+    <p class="diskon" id="diskon" hidden></p>
+    <div class="nota-total"><span>Total</span><b id="notaTotal">Rp0</b></div>
+    <div class="nota-aksi">
+      <button class="link" id="nKosong" type="button">Kosongkan</button>
+      <button class="link" id="nTutup" type="button">Lanjut belanja</button>
+      <button class="btn" id="kLanjut" type="button">Lanjut ke pembayaran</button>
+    </div>
+  </div>
+
+  <div class="nota-isi" id="vBayar" hidden>
+    <p class="nota-tgl">Langkah 2 dari 2</p>
+    <h2>Data pesanan</h2>
+    <div class="nota-total"><span>Total bayar</span><b id="bayarTotal">Rp0</b></div>
+    <label for="pNama">Atas nama</label>
+    <input type="text" id="pNama" maxlength="40" placeholder="Nama kamu" required>
+    <div id="tipe" role="group" aria-label="Cara terima">
+      <button type="button" class="tab" data-tipe="Ambil di tempat" aria-pressed="true">Ambil di tempat</button>
+      <button type="button" class="tab" data-tipe="Diantar" aria-pressed="false">Diantar</button>
+    </div>
+    <label for="pAlamat" id="lAlamat" hidden>Alamat antar</label>
+    <input type="text" id="pAlamat" maxlength="120" placeholder="Jalan, nomor, patokan" hidden>
+    <label for="pCatatan">Catatan (boleh kosong)</label>
+    <input type="text" id="pCatatan" maxlength="100" placeholder="Misal: sambal dipisah">
+    <p class="jdl">Bayar dengan</p>
+    <div id="bayarPilih" role="group" aria-label="Cara bayar">
+      <button type="button" class="tab" data-bayar="Tunai" aria-pressed="true">Tunai</button>
+      <button type="button" class="tab" data-bayar="QRIS" aria-pressed="false">QRIS</button>
+    </div>
+    <div class="qris" id="qrisBox" hidden>
+      <img src="qris.png" alt="Kode QRIS" width="220" height="220">
+      <p>Scan, lalu isi nominal <b id="qrisTotal">Rp0</b>. Kirim bukti bayar lewat chat WhatsApp.</p>
+    </div>
+    <div class="nota-aksi">
+      <button class="link" id="nKembali" type="button">Kembali ke keranjang</button>
+      <button class="btn" id="nKirim" type="button">Kirim lewat WhatsApp</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
