@@ -230,7 +230,7 @@
   var ULASAN = [
     { t: "Kulitnya garing banget, isi mayonya melimpah. Habis sebelum sampai rumah.", n: "Dina, pelanggan baru" },
     { t: "Pesan lewat WhatsApp gampang. Datang tinggal ambil, risolnya masih panas.", n: "Rafi, pelanggan langganan" },
-    { t: "Risol pisang cokelatnya juara. Cokelatnya meleleh pas digigit.", n: "Sari, pesan untuk arisan" },
+    { t: "Risol matcha-nya juara. Matcha-nya meleleh pas digigit.", n: "Sari, pesan untuk arisan" },
     { t: "Risol cokelat crunchy-nya lumer banget. Beli satu langsung nambah.", n: "Bimo, pencinta cokelat" }
   ];
   var u = 0, putar;
