@@ -3,18 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Risol Bang Jek - Panas, Garing, Isi Penuh</title>
+<title>Risol Bang Jek - Risol Goreng Panas, Pesan Lewat WhatsApp</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A5%9F%3C/text%3E%3C/svg%3E">
 <meta name="description" content="Risol digoreng saat dipesan. Pilih menu, hitung total, pesan lewat WhatsApp.">
+<meta name="theme-color" content="#ffc83d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Risol Bang Jek - Panas, Garing, Isi Penuh">
+<meta property="og:description" content="Risol digoreng saat dipesan. Pilih menu, kirim ke WhatsApp.">
+<meta property="og:image" content="https://dzakifairuz124.github.io/RISOL-BANG-JEK/img/hero.jpg">
+<meta property="og:url" content="https://dzakifairuz124.github.io/RISOL-BANG-JEK/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FoodEstablishment","name":"Risol Bang Jek","servesCuisine":"Risol","url":"https://dzakifairuz124.github.io/RISOL-BANG-JEK/","image":"https://dzakifairuz124.github.io/RISOL-BANG-JEK/img/hero.jpg","telephone":"+62895343626600","openingHours":"Mo-Su 08:00-20:00","priceRange":"Rp5.000-Rp6.000"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" aria-label="Navigasi utama">
   <a class="logo" href="#atas">Risol Bang Jek</a>
+  <ul class="nav-menu">
+    <li><a href="#atas">Beranda</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#cara">Cara pesan</a></li>
+    <li><a href="#ulasan">Ulasan</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
   <div class="nav-kanan"><a class="btn kecil" href="#menu">Pesan</a><button class="malam" id="malam" type="button" aria-pressed="false">Mode malam</button></div>
 </nav>
 
@@ -25,7 +40,7 @@
     <a class="btn besar" href="#menu">Pesan sekarang</a>
     <div class="papan" id="papan" data-buka="true" aria-live="polite"><b id="papanTeks">BUKA</b><small id="papanJam"></small></div>
   </div>
-  <img class="hero-art" src="img/hero.jpg" alt="Risol mayo goreng keemasan dengan isi smoked beef, telur, dan mayo" width="800" height="600" onerror="this.remove()">
+  <img class="hero-art" src="img/hero.jpg" alt="Risol mayo goreng keemasan dengan isi smoked beef, telur, dan mayo" width="800" height="600" fetchpriority="high" onerror="this.remove()">
 </header>
 
 <main>
@@ -40,12 +55,14 @@
 
   <section id="menu">
     <h2>Pilih risolmu</h2>
+    <p class="catatan kiri" id="promoInfo"></p>
     <div class="tabs" role="group" aria-label="Pilih kategori menu">
       <button class="tab" data-kat="Semua" aria-pressed="true">Semua</button>
       <button class="tab" data-kat="Gurih" aria-pressed="false">Gurih</button>
       <button class="tab" data-kat="Manis" aria-pressed="false">Manis</button>
     </div>
     <div class="daftar" id="daftar"></div>
+    <noscript><p>Menu butuh JavaScript. Pesan langsung lewat <a href="https://wa.me/62895343626600">WhatsApp</a>.</p></noscript>
   </section>
 
   <section id="cara">
@@ -66,21 +83,37 @@
   <section id="faq">
     <h2>Pertanyaan yang sering muncul</h2>
     <details><summary>Pesan hari ini, kapan siap?</summary><p>Pesanan digoreng setelah kamu kirim. Biasanya siap dalam 15 sampai 20 menit.</p></details>
-    <details><summary>Ongkirnya berapa?</summary><p>Ongkir dihitung per kilometer dari warung. Jaraknya diisi di langkah pembayaran, dan totalnya langsung terlihat sebelum kamu kirim pesanan.</p></details>
+    <details><summary>Ongkirnya berapa?</summary><p>Ongkir dihitung per kilometer dari warung. Di langkah pembayaran, isi jarak atau tekan "Hitung dari lokasi saya"; totalnya langsung terlihat sebelum kamu kirim. Ongkir final bisa disesuaikan lewat chat.</p></details>
     <details><summary>Bayarnya bagaimana?</summary><p>Tunai saat ambil atau antar, atau scan QRIS. Website ini hanya mengirim daftar pesanan ke WhatsApp.</p></details>
     <details><summary>Bisa pesan banyak untuk acara?</summary><p>Bisa. Chat lewat WhatsApp minimal sehari sebelumnya.</p></details>
   </section>
 
   <section id="kontak">
     <h2>Ada pertanyaan?</h2>
-    <p class="info"><b>Alamat:</b> Jl. Contoh No. 12, Kota Anda<br><b>Terima pesanan:</b> setiap hari, 08.00 sampai 20.00</p>
-    <a class="btn" id="waLangsung" href="#" target="_blank" rel="noopener">Tanya lewat WhatsApp</a>
+    <div class="kontak-grid">
+      <div class="kartu-info">
+        <h3>Alamat</h3>
+        <p id="alamat"></p>
+        <h3>Jam terima pesanan</h3>
+        <p>Setiap hari, 08.00 sampai 20.00 WIB</p>
+      </div>
+      <div class="kartu-info">
+        <h3>Hubungi kami</h3>
+        <p>Tanya menu, pesanan untuk acara, atau konfirmasi ongkir.</p>
+        <a class="btn" id="waLangsung" href="#" target="_blank" rel="noopener">Tanya lewat WhatsApp</a>
+        <div class="sosial"><a class="ikon-link" id="peta" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Lihat di peta</a><span id="sosial"></span></div>
+      </div>
+    </div>
   </section>
 </main>
 
 <footer>
-  <p><strong>Risol Bang Jek</strong></p>
-  <p>&copy; <span id="tahun">2026</span> Risol Bang Jek. Sekali gigit, minta lagi.</p>
+  <div class="foot">
+    <div><strong class="foot-logo">Risol Bang Jek</strong><p>Panas, garing, isi penuh. Digoreng saat dipesan.</p></div>
+    <nav aria-label="Pintasan"><b>Pintasan</b><a href="#menu">Menu</a><a href="#cara">Cara pesan</a><a href="#faq">FAQ</a><a href="#kontak">Kontak</a></nav>
+    <div><b>Jam terima pesanan</b><p>Setiap hari, 08.00 sampai 20.00 WIB</p></div>
+  </div>
+  <p class="hak">&copy; <span id="tahun">2026</span> Risol Bang Jek. Sekali gigit, minta lagi.</p>
 </footer>
 
 <div class="keranjang" id="keranjang" hidden>
@@ -121,6 +154,9 @@
       <button type="button" class="tab" id="hitungJarak">Hitung dari lokasi saya</button>
       <p class="catatan kiri" id="infoJarak"></p>
     </div>
+    <label for="pJam">Jam ambil/antar (kosongkan = secepatnya)</label>
+    <input type="time" id="pJam" min="08:00" max="20:00">
+    <p class="catatan kiri" id="infoTutup" hidden></p>
     <label for="pCatatan">Catatan (boleh kosong)</label>
     <input type="text" id="pCatatan" maxlength="100" placeholder="Misal: sambal dipisah">
     <p class="jdl">Bayar dengan</p>
@@ -131,6 +167,7 @@
     <div class="qris" id="qrisBox" hidden>
       <img src="qris.png" alt="Kode QRIS" width="220" height="220">
       <p>Scan, lalu isi nominal <b id="qrisTotal">Rp0</b>. Kirim bukti bayar lewat chat WhatsApp.</p>
+      <a class="link" href="qris.png" download="QRIS-Risol-Bang-Jek.png">Unduh QRIS</a><button class="link" id="salinNominal" type="button">Salin nominal</button>
     </div>
     <div class="nota-aksi">
       <button class="link" id="nKembali" type="button">Kembali ke keranjang</button>
@@ -140,6 +177,6 @@
 </dialog>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
