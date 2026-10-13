@@ -210,3 +210,15 @@ body[data-tema="malam"] .nav-menu a:hover,body[data-tema="malam"] .nav-menu a.ak
 }
 
 @media(min-width:900px) and (max-width:1199px){.logo{font-size:1.5rem}.nav{gap:1rem}.nav-menu a{padding:.45rem .65rem;font-size:.95rem}}
+
+/* rapikan hero dan jarak tepi di laptop */
+@media(min-width:900px){
+.nav{padding-left:max(3rem,calc(50% - var(--lebar) / 2 + 3rem));padding-right:max(3rem,calc(50% - var(--lebar) / 2 + 3rem))}
+main{padding:0 3rem}
+.hero{gap:3rem;padding:2.5rem max(3rem,calc(50% - var(--lebar) / 2 + 3rem));min-height:calc(100svh - 5.5rem)}
+.hero-teks{gap:1.1rem}
+.hero h1{font-size:clamp(2.6rem,min(4.2vw,7.5vh),4.8rem);text-wrap:balance}
+.hero p{font-size:1.2rem}
+.hero-art{width:100%;height:min(calc(100svh - 12rem),34rem);aspect-ratio:auto}
+.foot,.hak{max-width:calc(var(--lebar) - 6rem)}
+}
